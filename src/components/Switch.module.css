@@ -1,0 +1,21 @@
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  border-radius: 1000px;
+}
+
+.switch:is(:hover, :focus, :focus-within, :focus-visible){
+  outline: 2px solid hsl(var(--color-text));
+  outline-offset: 0.5rem;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.switch_span {
+  font-weight: 600;
+}
