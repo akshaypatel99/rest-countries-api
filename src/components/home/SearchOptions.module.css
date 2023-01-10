@@ -1,0 +1,37 @@
+.search_section {
+  width: 100%;
+  display: flex;
+  margin: 1rem 0 3rem;
+}
+
+.filter, .search {
+  width: 100%;
+  
+}
+
+.filter {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter select {
+  font-weight: 600;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 15rem;
+  box-shadow:
+  0px 0px 10px rgba(0, 0, 0, 0.035),
+  0px 0px 80px rgba(0, 0, 0, 0.07)
+;
+}
+
+.search input {
+  font-weight: 600;
+  padding: 1rem 3rem;
+  width: 100%;
+  max-width: 30rem;
+  box-shadow:
+  0px 0px 10px rgba(0, 0, 0, 0.035),
+  0px 0px 80px rgba(0, 0, 0, 0.07)
+;
+}
