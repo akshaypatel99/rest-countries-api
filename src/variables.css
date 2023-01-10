@@ -5,6 +5,8 @@
   --color-input: 0, 0%, 52%;
   --font-size-homepage: 0.875rem;
   --font-size-detail: 1rem;
+  --container-padding-header: 1rem;
+  --container-padding-main: 1.5rem;
 }
 
 [data-theme='dark'] {
@@ -12,4 +14,11 @@
   --color-elements: 209, 23%, 22%;
   --color-bg: 207, 26%, 17%;
   --color-input: 0, 0%, 100%;
+}
+
+@media (min-width: 1440px) {
+  :root{
+    --container-padding-header: 2rem 5rem;
+    --container-padding-main: 2rem 5rem;
+  }
 }
