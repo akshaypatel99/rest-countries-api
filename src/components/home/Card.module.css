@@ -1,0 +1,49 @@
+.card {
+  width: 16.25rem;
+  height: 21.75rem;
+  background-color: hsl(var(--color-elements));
+  border-radius: 5px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45% 55%;
+  box-shadow:
+  0px 0px 10px rgba(0, 0, 0, 0.035),
+  0px 0px 80px rgba(0, 0, 0, 0.07)
+;
+}
+
+.card_image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.card_content {
+  height: 50%;
+  padding: 1.5rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card_title {
+  font-size: 1.2rem;
+}
+
+.card_facts {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.card_facts p {
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}
+
+.card_facts span {
+  font-weight: 300;
+  margin-left: 1ch;
+}
