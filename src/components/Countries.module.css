@@ -1,0 +1,13 @@
+.countries {
+  padding: var(--container-padding-main);
+}
+
+.countries_grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
+  gap: 5rem;
+}
+
+
+
