@@ -1,17 +1,18 @@
 .search_section {
   width: 100%;
   display: flex;
+  flex-direction: column;
   margin: 1rem 0 3rem;
+  gap: 2rem;
 }
 
 .filter, .search {
   width: 100%;
-  
+  position: relative;
 }
 
 .filter {
   display: flex;
-  justify-content: flex-end;
 }
 
 .filter select {
@@ -36,4 +37,21 @@
     0px 0px 15px rgba(0, 0, 0, 0.05),
     0px 0px 20px rgba(0, 0, 0, 0.07)
   ;
+}
+
+.search svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 1024px){
+  .search_section {
+    flex-direction: row;
+  }
+
+  .filter {
+    justify-content: flex-end;
+  }
 }

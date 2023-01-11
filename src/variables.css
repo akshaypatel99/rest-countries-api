@@ -16,7 +16,7 @@
   --color-input: 0, 0%, 100%;
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1024px) {
   :root{
     --container-padding-header: 2rem 5rem;
     --container-padding-main: 2rem 5rem;

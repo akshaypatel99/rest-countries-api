@@ -1,3 +1,4 @@
+import { IoSearchSharp } from 'react-icons/io5';
 import { StateType } from '../../hooks/useCountries';
 import styles from './SearchOptions.module.css';
 
@@ -23,6 +24,7 @@ const SearchOptions = ({
 					value={state.searchParams}
 					onChange={handleSearchParamsChange}
 				/>
+				<IoSearchSharp />
 			</label>
 			<label className={styles.filter}>
 				<span className='sr-only'>Filter by Region</span>

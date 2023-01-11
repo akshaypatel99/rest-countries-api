@@ -6,8 +6,12 @@
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
-  gap: 5rem;
+  gap: 2.5rem;
+  justify-items: center;
 }
 
-
-
+@media (min-width: 1024px){
+  .countries_grid {
+    gap: 5rem;
+  }
+}
