@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { QueryClient, useQuery } from '@tanstack/react-query';
 import { Country, getCountries } from '../utils';
 
 type InputChangeEvent = React.ChangeEvent<HTMLInputElement>
@@ -15,6 +15,16 @@ export type StateType = {
 	searchParams: string,
 }
 
+const countriesQuery = () => ({
+	queryKey: ['countries'],
+	queryFn: async () => getCountries(),
+});
+
+export const loader = (queryClient: QueryClient) => async () => {
+	const query = countriesQuery();
+	return await queryClient.ensureQueryData(query);
+};
+
 export const useCountries = (): useCountriesReturn => {
 	const [state, setState] = useState<StateType>({
 		countries: [],
@@ -23,10 +33,7 @@ export const useCountries = (): useCountriesReturn => {
 		searchParams: ''
 	});
 
-	const { isLoading, error, data, isFetching } = useQuery({
-		queryKey: ['countries'],
-		queryFn: getCountries,
-	});
+	const { isLoading, error, data, isFetching } = useQuery(countriesQuery());
 
 	const handleFilterChange = (
 		e: SelectChangeEvent
