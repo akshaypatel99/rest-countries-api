@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#ffa700"></rect><text x="50%" y="50%" dominant-baseline="central" text-anchor="middle" font-size="70">🌍</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>favicon</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="favicon" fill-rule="nonzero">
+            <rect id="Rectangle" fill="#FFA700" x="0" y="0" width="256" height="256" rx="51.2"></rect>
+            <text id="🌍" fill="#000000" font-family="AppleColorEmoji, Apple Color Emoji" font-size="179.2" font-weight="normal" line-spacing="180">
+                <tspan x="38.4" y="216.92">🌍</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
