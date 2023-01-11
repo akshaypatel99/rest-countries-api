@@ -8,6 +8,8 @@ import {
 	getCountry,
 } from '../../utils';
 import { QueryClient, useQuery } from '@tanstack/react-query';
+import styles from './DetailPage.module.css';
+import { IoArrowBackSharp } from 'react-icons/io5';
 
 const countryDetailQuery = (id: string) => ({
 	queryKey: ['country', id],
@@ -31,14 +33,13 @@ const DetailPage = () => {
 	if (isLoading) output = <h2>Loading...</h2>;
 	if (data) {
 		const country: Country = data[0];
-		console.log(country);
-
-		const nameObj = country.name.nativeName;
 
 		let capital;
 		if (country.capital !== undefined) {
 			capital = country.capital.map((city, index) => (
-				<span key={index}>{city}</span>
+				<span key={index} className={styles.list}>
+					{city}
+				</span>
 			));
 		} else {
 			capital = <span>N/A</span>;
@@ -47,10 +48,11 @@ const DetailPage = () => {
 		let borderLinks;
 		if (country.borders !== undefined) {
 			const borders = formatBorderNames(country.borders);
-			console.log(borders);
 			borderLinks = borders.map((border) => (
 				<span key={border[0]}>
-					<Link to={`/country/${border[0]}`}>{border[1]}</Link>
+					<Link to={`/country/${border[0]}`} className={styles.link}>
+						{border[1]}
+					</Link>
 				</span>
 			));
 		} else {
@@ -58,14 +60,15 @@ const DetailPage = () => {
 		}
 
 		output = (
-			<article>
+			<article className={styles.article}>
 				<img
 					src={country.flags.svg}
 					alt={`Flag of ${country.name.common}`}
-					// className={styles.card_image}
+					className={styles.image}
 				/>
-				<section>
-					<div>
+				<section className={styles.section}>
+					<h2 className={styles.title}>{country.name.common}</h2>
+					<div className={styles.info1}>
 						<p>
 							Native Name: <span>{country.name.official}</span>
 						</p>
@@ -80,9 +83,9 @@ const DetailPage = () => {
 						</p>
 						<p>Capital: {capital}</p>
 					</div>
-					<div>
+					<div className={styles.info2}>
 						<p>
-							Top Level Domain: <span>{country.tld[0] ?? 'N/A'}</span>
+							Top Level Domain: <span>{country.tld?.[0] ?? 'N/A'}</span>
 						</p>
 						<p>
 							Currencies:{' '}
@@ -96,12 +99,14 @@ const DetailPage = () => {
 							Languages:{' '}
 							{country.languages
 								? formatLanguages(country.languages).map((lang, index) => (
-										<span key={index}>{lang}</span>
+										<span key={index} className={styles.list}>
+											{lang}
+										</span>
 								  ))
 								: 'N/A'}
 						</p>
 					</div>
-					<div>
+					<div className={styles.borders}>
 						<p>Border Countries: {borderLinks}</p>
 					</div>
 				</section>
@@ -109,9 +114,11 @@ const DetailPage = () => {
 		);
 	}
 	return (
-		<main>
-			<nav>
-				<Link to='/'>Back button</Link>
+		<main className={styles.container}>
+			<nav className={styles.nav}>
+				<Link to='/' className={styles.back_button}>
+					<IoArrowBackSharp /> Back
+				</Link>
 			</nav>
 			{output}
 		</main>
