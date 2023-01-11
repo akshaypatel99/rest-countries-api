@@ -13,6 +13,7 @@
 
 .filter {
   display: flex;
+  height: 2.5rem;
 }
 
 .filter select {
@@ -53,5 +54,6 @@
 
   .filter {
     justify-content: flex-end;
+    height: 3rem;
   }
 }
