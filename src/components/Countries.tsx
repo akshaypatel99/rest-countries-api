@@ -6,13 +6,8 @@ import styles from './Countries.module.css';
 import { Link } from 'react-router-dom';
 
 const Countries = () => {
-	const [
-		state,
-		handleFilterChange,
-		handleSearchParamsChange,
-		isLoading,
-		error,
-	] = useCountries();
+	const [state, handleFilterChange, handleSearchParamsChange, isLoading] =
+		useCountries();
 
 	return (
 		<main className={styles.countries}>
@@ -22,6 +17,7 @@ const Countries = () => {
 				state={state}
 			/>
 			{isLoading && <h2>Loading...</h2>}
+
 			<article className={styles.countries_grid}>
 				{state.countries.map((country: Country) => (
 					<Link key={country.cca3} to={`country/${country.cca3}`}>

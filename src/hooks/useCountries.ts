@@ -6,7 +6,7 @@ type InputChangeEvent = React.ChangeEvent<HTMLInputElement>
 
 type SelectChangeEvent = React.ChangeEvent<HTMLSelectElement>
 
-type useCountriesReturn = [StateType, (e: SelectChangeEvent) => void, (e: InputChangeEvent) => void, boolean, unknown];
+type useCountriesReturn = [StateType, (e: SelectChangeEvent) => void, (e: InputChangeEvent) => void, boolean];
 
 export type StateType = {
 	countries: Country[],
@@ -18,6 +18,7 @@ export type StateType = {
 const countriesQuery = () => ({
 	queryKey: ['countries'],
 	queryFn: async () => getCountries(),
+	useErrorBoundary: true,
 });
 
 export const loader = (queryClient: QueryClient) => async () => {
@@ -33,7 +34,7 @@ export const useCountries = (): useCountriesReturn => {
 		searchParams: ''
 	});
 
-	const { isLoading, error, data, isFetching } = useQuery(countriesQuery());
+	const { isLoading, data } = useQuery(countriesQuery());
 
 	const handleFilterChange = (
 		e: SelectChangeEvent
@@ -89,5 +90,5 @@ export const useCountries = (): useCountriesReturn => {
 
 	
 
-  return [state, handleFilterChange, handleSearchParamsChange, isLoading, error]
+  return [state, handleFilterChange, handleSearchParamsChange, isLoading]
 }

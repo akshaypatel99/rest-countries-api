@@ -14,6 +14,7 @@ import { IoArrowBackSharp } from 'react-icons/io5';
 const countryDetailQuery = (id: string) => ({
 	queryKey: ['country', id],
 	queryFn: async () => getCountry(id),
+	useErrorBoundary: true,
 });
 
 export const loader =
