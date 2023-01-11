@@ -96,3 +96,7 @@ input, select, input::placeholder {
   white-space: nowrap;
   border: 0;
 }
+
+.loading {
+  margin: 3rem auto;
+}

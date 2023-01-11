@@ -16,7 +16,7 @@ const Countries = () => {
 				handleSearchParamsChange={handleSearchParamsChange}
 				state={state}
 			/>
-			{isLoading && <h2>Loading...</h2>}
+			{isLoading && <h2 className='loading'>Loading...</h2>}
 
 			<article className={styles.countries_grid}>
 				{state.countries.map((country: Country) => (

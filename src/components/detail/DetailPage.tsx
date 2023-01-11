@@ -31,7 +31,7 @@ const DetailPage = () => {
 	);
 
 	let output;
-	if (isLoading) output = <h2>Loading...</h2>;
+	if (isLoading) output = <h2 className='loading'>Loading...</h2>;
 	if (data) {
 		const country: Country = data[0];
 
