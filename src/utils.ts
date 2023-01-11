@@ -1,8 +1,32 @@
 // Utils
-export const apiURL = 'https://restcountries.com/v3.1/all';
+const baseURL = 'https://restcountries.com/v3.1'
+export const allCountriesURL = `${baseURL}/all`;
+export const countryURL = `${baseURL}/alpha`
 
-export const getCountries = async () => {
-  return await fetch(apiURL).then(res => res.json())
+export async function getCountries() {
+  const response = await fetch(allCountriesURL, {
+    method: 'GET'
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+export async function getCountry(id: string) {
+  const response = await fetch(`${countryURL}/${id}`, {
+    method: 'GET'
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+  }
+
+  const data = await response.json();
+  return data;
 }
 
 interface LanguageObject { [key: string]: string };
@@ -15,6 +39,7 @@ export type Country = {
       official: string
     }
   },
+  cca3: string,
   population: number,
   region: string,
   subregion: string,
