@@ -3,6 +3,7 @@ import { useCountries } from '../hooks/useCountries';
 import SearchOptions from './home/SearchOptions';
 import Card from './home/Card';
 import styles from './Countries.module.css';
+import { Link } from 'react-router-dom';
 
 const Countries = () => {
 	const [
@@ -20,10 +21,12 @@ const Countries = () => {
 				handleSearchParamsChange={handleSearchParamsChange}
 				state={state}
 			/>
-			{isLoading && <p>Loading...</p>}
+			{isLoading && <h2>Loading...</h2>}
 			<article className={styles.countries_grid}>
 				{state.countries.map((country: Country) => (
-					<Card country={country} key={country.name.common} />
+					<Link key={country.cca3} to={`country/${country.cca3}`}>
+						<Card country={country} />
+					</Link>
 				))}
 			</article>
 		</main>
