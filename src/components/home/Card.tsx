@@ -1,23 +1,20 @@
-import { Country } from '../../utils';
+import { Country, formatPopulation } from '../../utils';
 import styles from './Card.module.css';
 
 interface Props {
 	country: Country;
-	key: string;
 }
 
 const Card = (props: Props) => {
 	const { country } = props;
 
-	let population = new Intl.NumberFormat('en-GB').format(country.population);
-
 	let capital;
-	if (typeof country.capital === 'object') {
+	if (country.capital !== undefined) {
 		capital = country.capital.map((city, index) => (
 			<span key={index}>{city}</span>
 		));
 	} else {
-		capital = <span>country.capital</span>;
+		capital = <span>N/A</span>;
 	}
 
 	return (
@@ -31,7 +28,7 @@ const Card = (props: Props) => {
 				<h2 className={styles.card_title}>{country.name.common}</h2>
 				<div className={styles.card_facts}>
 					<p>
-						Population: <span>{population}</span>
+						Population: <span>{formatPopulation(country.population)}</span>
 					</p>
 					<p>
 						Region: <span>{country.region}</span>
