@@ -1,10 +1,8 @@
-import { ChangeEvent, useState } from 'react';
-import { useQuery } from '@tanstack/react-query';
-import { Country, getCountries } from '../utils';
-import Card from './home/Card';
-import styles from './Countries.module.css';
+import { Country } from '../utils';
 import { useCountries } from '../hooks/useCountries';
 import SearchOptions from './home/SearchOptions';
+import Card from './home/Card';
+import styles from './Countries.module.css';
 
 const Countries = () => {
 	const [
