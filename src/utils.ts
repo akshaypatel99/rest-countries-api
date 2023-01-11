@@ -85,6 +85,6 @@ export function formatLanguages(languages: LanguageObject) {
 }
 
 export function formatBorderNames(borders: [string]): string[][] {
-  let result = borders.map(border => [border, countries.getName(border, "en")])
+  let result = borders.map(border => [border, countries.getName(border, "en", { select: "alias" }) ?? border])
   return result;
 }
