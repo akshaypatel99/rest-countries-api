@@ -50,7 +50,7 @@ Users should be able to:
 
 ### Learning & Development
 
-Practicing and reinforcing my knowledge of HTML, CSS and JS.
+Practicing and reinforcing my knowledge of HTML, CSS, JS, React and TypeScript.
 
 ## Author
 
